@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="700" viewBox="0 0 1100 700">
+  <rect width="1100" height="700" fill="#f5f7fb"/>
+  <style>
+    .box { fill:#ffffff; stroke:#4a6572; stroke-width:2; rx:16; }
+    .header { fill:#ffffff; font: bold 18px Arial, sans-serif; }
+    .header-blue { fill:#2c3e50; rx:16; }
+    .header-purple { fill:#5d4b9b; rx:16; }
+    .header-green { fill:#2a7f62; rx:16; }
+    .header-teal { fill:#3c7f99; rx:16; }
+    .attr { font: 14px Arial, sans-serif; fill:#2c3e50; }
+    .pk { font: bold 14px Arial, sans-serif; fill:#2b6cb0; }
+    .fk { font: bold 14px Arial, sans-serif; fill:#d97706; }
+    .line { stroke:#4a6572; stroke-width:2; }
+    .label { font: 13px Arial, sans-serif; fill:#4a6572; font-weight: bold; }
+    .relation { fill:#4a6572; font: 12px Arial, sans-serif; }
+    .row-bg { fill:#eef4fb; }
+    .row-bg-alt { fill:#ffffff; }
+  </style>
+
+  <!-- CLIENTE -->
+  <rect class="box" x="50" y="50" width="280" height="200"/>
+  <rect class="header-blue" x="50" y="50" width="280" height="40"/>
+  <text class="header" x="190" y="75" text-anchor="middle">CLIENTE</text>
+  <rect class="row-bg" x="50" y="90" width="280" height="30"/>
+  <text class="pk" x="70" y="110">string DNI PK</text>
+  <rect class="row-bg-alt" x="50" y="120" width="280" height="30"/>
+  <text class="attr" x="70" y="140">string nombre</text>
+  <rect class="row-bg" x="50" y="150" width="280" height="30"/>
+  <text class="attr" x="70" y="170">string direccion</text>
+  <rect class="row-bg-alt" x="50" y="180" width="280" height="30"/>
+  <text class="attr" x="70" y="200">date fecha_nacimiento</text>
+
+  <!-- ASUNTO -->
+  <rect class="box" x="380" y="50" width="280" height="250"/>
+  <rect class="header-purple" x="380" y="50" width="280" height="40"/>
+  <text class="header" x="520" y="75" text-anchor="middle">ASUNTO</text>
+  <rect class="row-bg" x="380" y="90" width="280" height="30"/>
+  <text class="pk" x="400" y="110">string num_expediente PK</text>
+  <rect class="row-bg-alt" x="380" y="120" width="280" height="30"/>
+  <text class="attr" x="400" y="140">date fecha_inicio</text>
+  <rect class="row-bg" x="380" y="150" width="280" height="30"/>
+  <text class="attr" x="400" y="170">date fecha_fin</text>
+  <rect class="row-bg-alt" x="380" y="180" width="280" height="30"/>
+  <text class="attr" x="400" y="200">string estado</text>
+  <rect class="row-bg" x="380" y="210" width="280" height="30"/>
+  <text class="fk" x="400" y="230">string DNI_cliente FK</text>
+
+  <!-- PROCURADOR -->
+  <rect class="box" x="710" y="50" width="280" height="220"/>
+  <rect class="header-green" x="710" y="50" width="280" height="40"/>
+  <text class="header" x="850" y="75" text-anchor="middle">PROCURADOR</text>
+  <rect class="row-bg" x="710" y="90" width="280" height="30"/>
+  <text class="pk" x="730" y="110">string DNI PK</text>
+  <rect class="row-bg-alt" x="710" y="120" width="280" height="30"/>
+  <text class="attr" x="730" y="140">string nombre</text>
+  <rect class="row-bg" x="710" y="150" width="280" height="30"/>
+  <text class="attr" x="730" y="170">string apellidos</text>
+  <rect class="row-bg-alt" x="710" y="180" width="280" height="30"/>
+  <text class="attr" x="730" y="200">string num_colegiado</text>
+  <rect class="row-bg" x="710" y="210" width="280" height="30"/>
+  <text class="attr" x="730" y="230">int casos_ganados</text>
+
+  <!-- ASUNTO_PROCURADOR -->
+  <rect class="box" x="420" y="350" width="280" height="160"/>
+  <rect class="header-teal" x="420" y="350" width="280" height="40"/>
+  <text class="header" x="560" y="375" text-anchor="middle">ASUNTO_PROCURADOR</text>
+  <rect class="row-bg" x="420" y="390" width="280" height="30"/>
+  <text class="fk" x="440" y="410">string num_expediente FK</text>
+  <rect class="row-bg-alt" x="420" y="420" width="280" height="30"/>
+  <text class="fk" x="440" y="440">string DNI_procurador FK</text>
+  <rect class="row-bg" x="420" y="450" width="280" height="30"/>
+  <text class="pk" x="440" y="470">PK compuesta (num_exp, DNI_proc)</text>
+
+  <!-- Relaciones -->
+  <line class="line" x1="330" y1="140" x2="380" y2="140"/>
+  <text class="relation" x="350" y="135">tiene (1:N)</text>
+
+  <line class="line" x1="520" y1="300" x2="520" y2="350"/>
+  <text class="relation" x="530" y="325">pertenece (N:M)</text>
+
+  <line class="line" x1="850" y1="270" x2="850" y2="350"/>
+  <line class="line" x1="850" y1="350" x2="700" y2="350"/>
+  <text class="relation" x="760" y="325">gestiona (N:M)</text>
+</svg>
